@@ -3,7 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   // app root là element tag trên html
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `<app-hello></app-hello>
+    <app-hi></app-hi>
+    `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
