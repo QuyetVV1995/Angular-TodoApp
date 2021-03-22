@@ -1,0 +1,21 @@
+{
+  "name": "Angular_CoderTokyo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuyetVV1995/Angular-TodoApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QuyetVV1995/Angular-TodoApp/issues"
+  },
+  "homepage": "https://github.com/QuyetVV1995/Angular-TodoApp#readme"
+}
