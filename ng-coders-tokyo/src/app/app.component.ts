@@ -14,7 +14,7 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
   (mouseout)="onTextMouseOut()"
    > {{title}}</h1>
     <button (click)="onButtonClick()">{{withBorder ? 'Hide' : 'Show'}} Border</button>
-    <app-hello [text]="title"></app-hello>
+    <app-hello [text]="title" (buttonClicked)="onButtonClickFromHello($event)"></app-hello>
     `,
   styleUrls: ['./app.component.css']
 })
@@ -28,6 +28,11 @@ export class AppComponent implements OnInit, OnChanges,
   styleObj = {color: this.textColor, background: this.bgColor};
 
   withBorder = true;
+
+  onButtonClickFromHello(event: string){
+    console.log({event}, "click from hello");
+    this.title = event;
+  }
 
   onButtonClick(){
     this.withBorder = !this.withBorder; //toggle
@@ -44,31 +49,31 @@ export class AppComponent implements OnInit, OnChanges,
   }
 
   ngOnInit(): void{
-    console.log('parent OnInit ran');
+    // console.log('parent OnInit ran');
   }
 
   ngOnDestroy(): void{
-    console.log('parent OnDestroy ran');
+    // console.log('parent OnDestroy ran');
   }
 
   ngAfterViewInit(): void{
-    console.log('parent AfterViewInit ran');
+    // console.log('parent AfterViewInit ran');
   }
 
   ngAfterContentChecked(): void{
-    console.log('parent AfterContentChecked ran');
+    // console.log('parent AfterContentChecked ran');
   }
 
   ngAfterContentInit(): void{
-    console.log('parent AfterContentInit ran');
+    // console.log('parent AfterContentInit ran');
   }
 
   ngAfterViewChecked(): void{
-    console.log('parent AfterViewChecked ran');
+    // console.log('parent AfterViewChecked ran');
   }
 
   ngOnChanges(): void{
-    console.log('parent OnChange ran');
+    // console.log('parent OnChange ran');
   }
 
 
