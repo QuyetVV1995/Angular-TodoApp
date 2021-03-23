@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnChanges, OnDestroy,
 
   AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Output, EventEmitter} from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 
 
@@ -19,6 +20,11 @@ OnDestroy,AfterViewInit, AfterContentInit, AfterViewChecked, AfterContentChecked
   // Output: Event tu component Child sang component Parent
   @Output() buttonClicked: EventEmitter<string> =  new EventEmitter<string>();
 
+  // inject DataService
+  constructor(private _dataService:DataService){
+
+  }
+
   onButtonClicked(){
     this.text = 'Change from Hello Component';
     this.buttonClicked.emit(this.text);
@@ -27,6 +33,7 @@ OnDestroy,AfterViewInit, AfterContentInit, AfterViewChecked, AfterContentChecked
 
   ngOnInit(): void{
    // console.log('child OnInit ran');
+   this._dataService.setTextFromHello(this.text);
   }
 
   ngOnDestroy(): void{

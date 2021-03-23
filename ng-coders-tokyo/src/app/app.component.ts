@@ -15,6 +15,7 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
    > {{title}}</h1>
     <button (click)="onButtonClick()">{{withBorder ? 'Hide' : 'Show'}} Border</button>
     <app-hello [text]="title" (buttonClicked)="onButtonClickFromHello($event)"></app-hello>
+    <app-hi></app-hi>
     `,
   styleUrls: ['./app.component.css']
 })
