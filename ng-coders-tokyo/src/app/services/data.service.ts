@@ -1,17 +1,17 @@
 import { Injectable } from "@angular/core";
+import { BehaviorSubject, Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'  // golbal
 })  // Dependency Injection -> Design Pattern
 export class DataService{
-  private _textFromHello: string;
+  private _textFromHelloSubject: BehaviorSubject<string> =  new BehaviorSubject<string>('');
 
-  get textFromHello(): string{
-    return this._textFromHello;
-  }
+  textFromhello$: Observable<string> = this._textFromHelloSubject.asObservable();
+
 
   setTextFromHello(text: string){
-    this._textFromHello = text;
+    this._textFromHelloSubject.next(text);
   }
 }
 

@@ -12,7 +12,8 @@ export class HiComponent implements OnInit {
   constructor(private _dataService: DataService) { }
 
   ngOnInit(): void {
-    this.textFromHello = this._dataService.textFromHello;
+    // gan tri text bang gia tri nhan duoc tu observable textFromhell$
+    this._dataService.textFromhello$.subscribe(text => this.textFromHello = text);
   }
 
 }

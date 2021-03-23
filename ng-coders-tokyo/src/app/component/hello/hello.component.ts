@@ -28,7 +28,7 @@ OnDestroy,AfterViewInit, AfterContentInit, AfterViewChecked, AfterContentChecked
   onButtonClicked(){
     this.text = 'Change from Hello Component';
     this.buttonClicked.emit(this.text);
-
+    this._dataService.setTextFromHello(this.text);
   }
 
   ngOnInit(): void{
