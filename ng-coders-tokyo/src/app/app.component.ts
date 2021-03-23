@@ -9,7 +9,11 @@ import { Component } from '@angular/core';
 
 <!-- cach 1  <h1 [ngStyle]="{color:textColor, background: bgColor}"> {{title}} <h1> -->
  <!-- cach 2 <h1 [ngStyle]="styleObj"> {{title}} <h1> -->
-  <h1 [class.with-border]="withBorder"> {{title}}</h1>
+  <h1 [class.with-border]="withBorder"
+  (mouseover)="onTextMouseOver()"
+  (mouseout)="onTextMouseOut()"
+   > {{title}}</h1>
+    <button (click)="onButtonClick()">{{withBorder ? 'Hide' : 'Show'}} Border</button>
     `,
   styleUrls: ['./app.component.css']
 })
@@ -22,6 +26,19 @@ export class AppComponent {
   styleObj = {color: this.textColor, background: this.bgColor};
 
   withBorder = true;
+
+  onButtonClick(){
+    console.log('Button clicked');
+    this.withBorder = !this.withBorder; //toggle
+  }
+
+  onTextMouseOver(){
+    this.textColor = 'blue';
+  }
+
+  onTextMouseOut(){
+    this.textColor = 'tomato';
+  }
 }
 
 
