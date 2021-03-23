@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   // app root là element tag trên html
@@ -14,10 +14,12 @@ import { Component } from '@angular/core';
   (mouseout)="onTextMouseOut()"
    > {{title}}</h1>
     <button (click)="onButtonClick()">{{withBorder ? 'Hide' : 'Show'}} Border</button>
+    <app-hello [text]="title"></app-hello>
     `,
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnChanges,
+  OnDestroy,AfterViewInit, AfterContentInit, AfterViewChecked, AfterContentChecked {
   title = 'CodersTokyo';
 
   textColor = 'tomato';
@@ -28,8 +30,9 @@ export class AppComponent {
   withBorder = true;
 
   onButtonClick(){
-    console.log('Button clicked');
     this.withBorder = !this.withBorder; //toggle
+    this.title = 'Changed'
+
   }
 
   onTextMouseOver(){
@@ -39,6 +42,36 @@ export class AppComponent {
   onTextMouseOut(){
     this.textColor = 'tomato';
   }
+
+  ngOnInit(): void{
+    console.log('parent OnInit ran');
+  }
+
+  ngOnDestroy(): void{
+    console.log('parent OnDestroy ran');
+  }
+
+  ngAfterViewInit(): void{
+    console.log('parent AfterViewInit ran');
+  }
+
+  ngAfterContentChecked(): void{
+    console.log('parent AfterContentChecked ran');
+  }
+
+  ngAfterContentInit(): void{
+    console.log('parent AfterContentInit ran');
+  }
+
+  ngAfterViewChecked(): void{
+    console.log('parent AfterViewChecked ran');
+  }
+
+  ngOnChanges(): void{
+    console.log('parent OnChange ran');
+  }
+
+
 }
 
 
