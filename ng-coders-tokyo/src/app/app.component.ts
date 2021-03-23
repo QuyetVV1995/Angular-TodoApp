@@ -3,11 +3,29 @@ import { Component } from '@angular/core';
 @Component({
   // app root là element tag trên html
   selector: 'app-root',
-  template: `<app-hello></app-hello>
-    <app-hi></app-hi>
+  template: `
+  <!-- String Interpolation de hien thi bien title -->
+
+
+<!-- cach 1  <h1 [ngStyle]="{color:textColor, background: bgColor}"> {{title}} <h1> -->
+ <!-- cach 2 <h1 [ngStyle]="styleObj"> {{title}} <h1> -->
+  <h1 [class.with-border]="withBorder"> {{title}}</h1>
     `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-coders-tokyo';
+  title = 'CodersTokyo';
+
+  textColor = 'tomato';
+  bgColor = 'black';
+
+  styleObj = {color: this.textColor, background: this.bgColor};
+
+  withBorder = true;
 }
+
+
+// Data Binding
+// 1.PropertyBinding: bing nhung bien trong Component ra template
+// 2.EventBinding: Khi nguoi dung tuong tac voi template(click, scoll...)
+
