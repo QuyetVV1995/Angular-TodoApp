@@ -38,6 +38,14 @@ export class TodoService {
     this.updateToLocalStorage();
   }
 
+  changeTodoStatus(id: number, isCompleted: boolean){
+    const index = this.todos.findIndex(t => t.id === id);
+    const todo = this.todos[index];
+    todo.isCompleted = isCompleted;
+    this.todos.splice(index, 1, todo);
+    this.updateToLocalStorage();
+  }
+
   updateToLocalStorage(){
     this.storageService.setObject(TodoService.TodoStorageKey, this.todos);
     this.filterTodos(this.currentFilter, false);
