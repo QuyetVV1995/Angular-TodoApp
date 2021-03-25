@@ -8,11 +8,16 @@
   </span>
   <div>
     <button type="button" class="filter-btn" *ngFor="let btn of filterButtons"
-      [ngClass]="{active: btn.isActive}">
+      [ngClass]="{active: btn.isActive}"
+      (click)="filter(btn.type)"
+      >
       {{btn.label}}
     </button>
   </div>
-    <button class="filter-btn clear-completed-btn">Clear Completed</button>
+    <button class="filter-btn clear-completed-btn"
+      [ngClass]="{'visible': hasComplete$ | async}"
+      (click)="clearComplete()"
+    >Clear Completed</button>
 
   </div>
 </div>
